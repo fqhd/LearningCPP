@@ -1,26 +1,15 @@
 #include <iostream>
 
-struct E {
-	E(){
-		std::cout << "Created E struct" << std::endl;
-	}
-	~E(){
-		std::cout << "Destroyed E struct" << std::endl;
-	}
-};
-
-struct Vector2 {
-	Vector2(){ // Initializing a without initializer list(calls E::constructor twice)
-		a = E();
-	}
-	Vector2(int r) : a() {} // Initializing with initializer list(calls E::constructor once)
-	E a;
-};
-
 int main(){
 	
-	// Vector2 a;
-	Vector2 b(2);
+	// Static cast simply changes the binary data to preserve the value
+	// int a = 45;
+	// float b = static_cast<float>(a);
+	// std::cout << b << std::endl;
+
+	// Reinterpret cast does not change the binary data and will not preserve the value
+	// unsigned int a = 7;
+	// int* b = reinterpret_cast<int*>(&a); // Mostly used to change pointers(and reinterpret data that way)
 
 	return 0;
 }
