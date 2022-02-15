@@ -1,15 +1,19 @@
 #include <iostream>
 
-int main(){
-	
-	// Static cast simply changes the binary data to preserve the value
-	// int a = 45;
-	// float b = static_cast<float>(a);
-	// std::cout << b << std::endl;
+struct Vector {
+	float x, y;
+};
 
-	// Reinterpret cast does not change the binary data and will not preserve the value
-	// unsigned int a = 7;
-	// int* b = reinterpret_cast<int*>(&a); // Mostly used to change pointers(and reinterpret data that way)
+std::ostream& operator<<(std::ostream& a, const Vector& b){
+	a << b.x << ", " << b.y;
+	return a;
+}
+
+int main(){
+
+	Vector a = {2, 6};
+
+	std::cout << a << std::endl;;
 
 	return 0;
 }
